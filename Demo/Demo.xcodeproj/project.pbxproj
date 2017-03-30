@@ -15,6 +15,8 @@
 		6EC9E7431E8CEAF3004A75C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EC9E7411E8CEAF3004A75C0 /* LaunchScreen.storyboard */; };
 		6EC9E74E1E8CEAF3004A75C0 /* DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9E74D1E8CEAF3004A75C0 /* DemoTests.m */; };
 		6EC9E7591E8CEAF3004A75C0 /* DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9E7581E8CEAF3004A75C0 /* DemoUITests.m */; };
+		6EC9E7691E8CEF30004A75C0 /* WSWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9E7681E8CEF30004A75C0 /* WSWebView.m */; };
+		6EC9E76C1E8CEF68004A75C0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC9E76B1E8CEF68004A75C0 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,9 @@
 		6EC9E7541E8CEAF3004A75C0 /* DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EC9E7581E8CEAF3004A75C0 /* DemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoUITests.m; sourceTree = "<group>"; };
 		6EC9E75A1E8CEAF3004A75C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EC9E7671E8CEF30004A75C0 /* WSWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSWebView.h; sourceTree = "<group>"; };
+		6EC9E7681E8CEF30004A75C0 /* WSWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSWebView.m; sourceTree = "<group>"; };
+		6EC9E76B1E8CEF68004A75C0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EC9E76C1E8CEF68004A75C0 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +91,7 @@
 				6EC9E74C1E8CEAF3004A75C0 /* DemoTests */,
 				6EC9E7571E8CEAF3004A75C0 /* DemoUITests */,
 				6EC9E7311E8CEAF3004A75C0 /* Products */,
+				6EC9E76A1E8CEF68004A75C0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +108,7 @@
 		6EC9E7321E8CEAF3004A75C0 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				6EC9E7661E8CEEDF004A75C0 /* WSWebView */,
 				6EC9E7361E8CEAF3004A75C0 /* AppDelegate.h */,
 				6EC9E7371E8CEAF3004A75C0 /* AppDelegate.m */,
 				6EC9E7391E8CEAF3004A75C0 /* ViewController.h */,
@@ -138,6 +146,23 @@
 				6EC9E75A1E8CEAF3004A75C0 /* Info.plist */,
 			);
 			path = DemoUITests;
+			sourceTree = "<group>";
+		};
+		6EC9E7661E8CEEDF004A75C0 /* WSWebView */ = {
+			isa = PBXGroup;
+			children = (
+				6EC9E7671E8CEF30004A75C0 /* WSWebView.h */,
+				6EC9E7681E8CEF30004A75C0 /* WSWebView.m */,
+			);
+			path = WSWebView;
+			sourceTree = "<group>";
+		};
+		6EC9E76A1E8CEF68004A75C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6EC9E76B1E8CEF68004A75C0 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,8 +232,7 @@
 				TargetAttributes = {
 					6EC9E72F1E8CEAF3004A75C0 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = DQNM3Q63E9;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					6EC9E7481E8CEAF3004A75C0 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -275,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EC9E73B1E8CEAF3004A75C0 /* ViewController.m in Sources */,
+				6EC9E7691E8CEF30004A75C0 /* WSWebView.m in Sources */,
 				6EC9E7381E8CEAF3004A75C0 /* AppDelegate.m in Sources */,
 				6EC9E7351E8CEAF3004A75C0 /* main.m in Sources */,
 			);
@@ -425,7 +450,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DQNM3Q63E9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Demo;
@@ -437,7 +462,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DQNM3Q63E9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Demo;
