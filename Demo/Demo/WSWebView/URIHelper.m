@@ -50,7 +50,6 @@
     }else{
         fullPath = [NSString stringWithFormat:@"%@/%@",@"HtmlHost",@"baseUrl"];
     }
-//    NSString *token = [ManaUsrHelper sharedInstance].token;
     NSMutableDictionary *muParams = nil;
     if (params.count) {
         muParams = [[NSMutableDictionary alloc] initWithDictionary:params];

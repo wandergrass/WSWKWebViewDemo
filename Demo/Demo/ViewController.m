@@ -7,8 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "WSWebViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()<WSWebProtocol>
 
 @end
 
@@ -16,14 +17,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"webController" style:UIBarButtonItemStylePlain target:self action:@selector(pushToWebController)];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com/"]]];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Event
+- (void)pushToWebController{
+    WSWebViewController *vc = [[WSWebViewController alloc] initWithURLString:@"https://www.baidu.com/"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
+#pragma mark - WSWebProtocoldelegate
+
+- (void)JSBridgeLoadedFinish{
+    NSLog(@"加载完成处理");
+}
+
+#pragma mark - get
+- (WSWebView *)webView{
+    if (!_webView) {
+        _webView = [[WSWebView alloc] initWithFrame:self.view.frame delegate:self scriptMessageHandlerNames:@[]];
+        _webView.backgroundColor = [UIColor whiteColor];
+        [_webView setOpaque:NO];
+        [self.view addSubview:_webView];
+        [_webView evaluateJavaScript:@"navigator.userAgent" completionHandler:^(id result, NSError *error) {
+            NSLog(@"%@", result);
+        }];
+    }
+    return _webView;
+}
 
 @end

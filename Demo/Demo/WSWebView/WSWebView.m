@@ -41,7 +41,7 @@
         [handlerNames enumerateObjectsUsingBlock:^(NSString  *name, NSUInteger idx, BOOL * _Nonnull stop) {
             [config.userContentController addScriptMessageHandler:self name:name];
         }];
-        
+//
         // 添加KVO监听
         [self addObserver:self
                forKeyPath:@"loading"
@@ -117,11 +117,11 @@
 #pragma mark - WKNavigationDelegate
 // 请求开始前，会先调用此代理方法
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
-    if ([_manaWebProtocol respondsToSelector:@selector(JSBridgeWithNavigationAction:decisionHandler:)]) {
-        [_manaWebProtocol JSBridgeWithNavigationAction:navigationAction decisionHandler:decisionHandler];
-    }else{
+//    if ([_manaWebProtocol respondsToSelector:@selector(JSBridgeWithNavigationAction:decisionHandler:)]) {
+//        [_manaWebProtocol JSBridgeWithNavigationAction:navigationAction decisionHandler:decisionHandler];
+//    }else{
         decisionHandler(WKNavigationActionPolicyAllow);
-    }
+//    }
 }
 
 // 在响应完成时，会回调此方法
@@ -251,7 +251,8 @@
                 userAgent = mutableUserAgent;
             }
         }
-        userAgent = [userAgent stringByAppendingString:[NSString stringWithFormat:@"platformParams=%@",str]];
+        //此处是自己项目中的参数配置
+//        userAgent = [userAgent stringByAppendingString:[NSString stringWithFormat:@"platformParams=%@",str]];
     }
     return userAgent;
 }

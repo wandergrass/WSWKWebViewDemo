@@ -11,8 +11,7 @@
 #import "URIHelper.h"
 
 #define kTestURL    @"https://www.baidu.com/"
-@interface WSWebViewController ()<WSWebProtocol
->
+@interface WSWebViewController ()<WSWebProtocol>
 @property (nonatomic, strong) WSWebView *webView;
 @property (nonatomic, strong) UIBarButtonItem *backButtonItem;
 @property (nonatomic, strong) UIBarButtonItem *closeButtonItem;
@@ -111,13 +110,13 @@
 
 - (void)JSBridgeWithMessageName:(NSString *)functionName databody:(id)body{
     NSLog(@"function:%@ body:%@",functionName, body);
-   
 }
 
 - (void)JSBridgeWithNavigationAction:(WKNavigationAction *)navigationAction
                      decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
     
 }
+
 - (void)JSBridgeWithAlertMessage:(NSString *)message completionHandler:(void (^)(void))completionHandler{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -126,6 +125,7 @@
     
     [self presentViewController:alert animated:YES completion:NULL];
 }
+
 - (void)JSBridgeWithAlertMessage:(NSString *)message resultCompletionHandler:(void (^)(BOOL result))resultCompletionHandler{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -137,6 +137,7 @@
     [self presentViewController:alert animated:YES completion:NULL];
     
 }
+
 - (void)JSBridgeWithAlertTextInputPanelWithPrompt:(NSString *)prompt defaultText:(nullable NSString *)defaultText completionHandler:(void (^)(NSString * __nullable result))completionHandler{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"输入" message:prompt preferredStyle:UIAlertControllerStyleAlert];
     [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
@@ -150,10 +151,12 @@
     [self presentViewController:alert animated:YES completion:NULL];
     
 }
+
 #pragma mark  getter
 - (WSWebView *)webView{
     if (!_webView) {
         _webView = [[WSWebView alloc] initWithFrame:self.view.bounds delegate:self scriptMessageHandlerNames:[self scriptMessageHandlers]];
+        _webView.backgroundColor = [UIColor whiteColor];
         [_webView setOpaque:NO];
         [self.view addSubview:_webView];
         [_webView evaluateJavaScript:@"navigator.userAgent" completionHandler:^(id result, NSError *error) {
@@ -165,7 +168,7 @@
 
 - (UIBarButtonItem *)backButtonItem{
     if (!_backButtonItem) {
-        _backButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"nav_return_white"]
+        _backButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"group"]
                                                                   imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
                                                            style:UIBarButtonItemStylePlain
                                                           target:self

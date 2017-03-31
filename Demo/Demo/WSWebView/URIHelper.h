@@ -11,5 +11,4 @@
 @interface URIHelper : NSObject
 + (NSString *)fuckWithBaseURL:(NSString *)baseUrl queryParameters:(NSDictionary*)params;
 + (NSString *)fetchFullInvitationLinkWithCode:(NSString *)invitationCode;
-
 @end

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WSWebView.h"
 
 @interface ViewController : UIViewController
-
-
+@property (nonatomic, strong) WSWebView *webView;
 @end
 
