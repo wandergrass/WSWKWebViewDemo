@@ -242,7 +242,8 @@
 				TargetAttributes = {
 					6EC9E72F1E8CEAF3004A75C0 = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = DQNM3Q63E9;
+						ProvisioningStyle = Automatic;
 					};
 					6EC9E7481E8CEAF3004A75C0 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -462,8 +463,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = DQNM3Q63E9;
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -474,8 +477,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = DQNM3Q63E9;
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -547,6 +552,7 @@
 				6EC9E75F1E8CEAF3004A75C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6EC9E7601E8CEAF3004A75C0 /* Build configuration list for PBXNativeTarget "DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -555,6 +561,7 @@
 				6EC9E7621E8CEAF3004A75C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6EC9E7631E8CEAF3004A75C0 /* Build configuration list for PBXNativeTarget "DemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -563,6 +570,7 @@
 				6EC9E7651E8CEAF3004A75C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
